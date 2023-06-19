@@ -31,6 +31,7 @@ admin.site.register(models.Usuario)
 
 admin.site.register(models.NivelPrioridad)
 
+
 admin.site.register(models.Cola)
 
 admin.site.register(models.Ticket)
