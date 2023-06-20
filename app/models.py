@@ -10,7 +10,6 @@ class Pais(models.Model):
     def __str__(self) -> str:
         return self.pais_descripcion
 
-
 class Departamento(models.Model):
     departamento_id = models.AutoField(primary_key=True)
     pais_id = models.ForeignKey('Pais', on_delete=models.CASCADE)
@@ -40,8 +39,6 @@ class Empresa(models.Model):
 
     def __str__(self) -> str:
         return self.empresa_descripcion
-
-
 
 class Parametro(models.Model):
     parametro_id = models.AutoField(primary_key=True)
@@ -88,7 +85,7 @@ class Persona(models.Model):
     persona_correo = models.CharField(max_length=25, blank=False, null=False)
 
     def __str__(self) -> str:
-        return self.persona_nombre
+        return self.persona_cedula
 
 class TipoPersona(models.Model):
     tipo_persona_id = models.AutoField(primary_key=True)
@@ -134,22 +131,22 @@ class NivelPrioridad(models.Model):
     nivel_prioridad_estado = models.BooleanField(default=True, blank=False, null=False)
 
     def __str__(self) -> str:
-        return self.nivel_prioridad_condicion 
-
+        return self.nivel_prioridad_condicion
 
 class Cola(models.Model):
     cola_id = models.AutoField(primary_key=True)
     servicio_id = models.ForeignKey('Servicio', on_delete=models.SET_DEFAULT, default=None, blank=True,  null=True)
     persona_id = models.ForeignKey('Persona', on_delete=models.SET_DEFAULT, default=None, blank=True,  null=True)
     nivel_prioridad_id = models.ForeignKey('NivelPrioridad', on_delete=models.SET_DEFAULT, default=None, blank=True, null=True)
-    usuario_id = models.CharField(max_length=50,blank=True, null=True)
+    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     cola_ticket_nro = models.SmallIntegerField(blank=False, null=False)
     cola_fecha_hora_ingreso = models.DateTimeField(blank=True, null=True)
     cola_fecha_hora_salida = models.DateTimeField(blank=True, null=True)
     cola_fecha_hora_atencion = models.DateTimeField(blank=True, null=True)
     cola_estado = models.CharField(max_length=50, blank=True, null=True)
 
-
+    def __str__(self) -> str:
+        return self.cola_ticket_nro
 
 class Tickets(models.Model):
     tickets_id = models.AutoField(primary_key=True)

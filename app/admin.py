@@ -136,4 +136,12 @@ class ColaAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Cola,ColaAdmin)
 
-admin.site.register(models.Ticket)
+class TicketsAdmin(admin.ModelAdmin):
+    list_display = ["tickets_id", "tickets_descripcion", "tickets_nro"]
+    # list_filter= ["pais_descripcion"]
+    list_editable = ["tickets_descripcion", "tickets_nro"]
+    search_fields = ["tickets_descripcion"]
+    ordering = ["tickets_id"]
+
+admin.site.register(models.Tickets,TicketsAdmin)
+
