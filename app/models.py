@@ -79,7 +79,7 @@ class Persona(models.Model):
     persona_cedula = models.CharField(max_length=15, blank=False, null=False)
     persona_nombre = models.CharField(max_length=50, blank=False, null=False)
     persona_apellido = models.CharField(max_length=50, blank=False, null=False)
-    persona_fecha_nacimineto = models.DateField(blank=False, null=False)
+    persona_fecha_nacimiento = models.DateField(blank=False, null=False)    
     persona_direccion = models.CharField(max_length=50, blank=False, null=False)
     persona_telefono = models.CharField(max_length=15, blank=False, null=False)
     persona_correo = models.CharField(max_length=25, blank=False, null=False)
