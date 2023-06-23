@@ -26,8 +26,13 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Index, name='Index'),
-    path('index/', views.Index,name='turnero'),
-    path('', views.Login_views,name='login')
+    path('index/', views.Index, name='turnero'),
+    path('', views.Login_views, name='login'),
+    path('', views.Login_views, name='login'),
+    path('persona/', views.Persona_views, name='persona'),
+    path('servicio/', views.Servicio_views, name='servicio'),
+    path('turnos/', views.Turnos_views, name='turnos'),
+    path('lista_servicios/', views.ListaServicios_views, name='lista_servicios')
 
 ]
 #para definicion de migracion de archivos de nuestro proyecto a nuestro servidor de archivos (static_env)

@@ -27,11 +27,13 @@
         -moz-user-select: none;
         user-select: none;
       }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
       }
+
       .b-example-divider {
         height: 3rem;
         background-color: rgba(0, 0, 0, .1);
@@ -39,21 +41,25 @@
         border-width: 1px 0;
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
       }
+
       .b-example-vr {
         flex-shrink: 0;
         width: 1.5rem;
         height: 100vh;
       }
+
       .bi {
         vertical-align: -.125em;
         fill: currentColor;
       }
+
       .nav-scroller {
         position: relative;
         z-index: 2;
         height: 2.75rem;
         overflow-y: hidden;
       }
+
       .nav-scroller .nav {
         display: flex;
         flex-wrap: nowrap;
@@ -65,55 +71,39 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/css/sign-in.css' %}" rel="stylesheet">
   </head>
-  <body>
+  <body class="text-center">
+    
+<main class="form-signin w-100 m-auto">
 
-{% include "navbar.html" %}
+  <form method="POST" action="{% url "login" %}">
+    {% csrf_token %}
+    <img class="mb-4" src="{% static '/img/3588248.png' %}" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Acceso al Sistema Turnero</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif%}
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingUser" placeholder="USUARIO" name="username" />
+      <label for="floatingUser">Usuario</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="CONTRASEÑA" name="password" />
+      <label for="floatingPassword">Contraseña</label>
+    </div>
 
-<main class="container">
-  <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom"> Gestión de Módulos </h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col justify-content-center">
-        <img class="mb-4" src="{% static '/img/persona.jpeg' %}" alt="" width="120" height="120">
-        <h3 class="fs-2">Clientes</h3>
-        <p>Registre y Modifique a los Clientes en caso de que accedan por primera vez a un servicio o en caso que sus datos sean incorrectos o faltantes.</p>
-        <a href="{% url 'persona' %}" class="icon-link d-inline-flex align-items-center">
-          Acceder >
-        </a>
-      </div>
-      <div class="feature col">
-        <img class="mb-4" src="{% static '/img/servicios.png' %}" alt="" width="150" height="120">
-        <h3 class="fs-2">Servicios</h3>
-        <p>Administre los Servicios según sea requerido. Puede crear uno nuevo o modificarlo uno existente.</p>
-        <a href="{% url 'servicio' %}" class="icon-link d-inline-flex align-items-center">
-          Acceder >
-        </a>
-      </div>
-      <div class="feature col">
-        <img class="mb-4" src="{% static '/img/calendario.png' %}" alt="" width="120" height="120">
-        <h3 class="fs-2">Turnos</h3>
-        <p>Puede agregar a un cliente a la Lista de Espera para los servicios activos.</p>
-        <a href="{% url 'turnos' %}" class="icon-link d-inline-flex align-items-center">
-          Acceder >
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Operación de Servicios</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <img class="mb-4" src="{% static '/img/gestion-servicios.png' %}" alt="" width="120" height="120">
-        <h3 class="fs-2">Acceso a Servicios</h3>
-        <p>Ingrese Aquí para acceder a los servicios disponibles y atender los turnos.</p>
-        <a href="{% url 'lista_servicios' %}" class="icon-link d-inline-flex align-items-center">
-          Acceder >
-        </a>
-      </div>
-    </div>
-  </div>
+    {% comment %} <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recordar
+      </label>
+    </div> {% endcomment %}
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+    {% comment %} <p class="mt-5 mb-3 text-muted">&copy; 2023</p> {% endcomment %}
+  </form>
 </main>
-    <script src="{% static '/js/bootstrap.bundle.min.js' %}" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
   </body>
 </html>
