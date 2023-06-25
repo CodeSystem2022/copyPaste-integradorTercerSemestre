@@ -5,7 +5,6 @@ from .models import Persona, Sexo, Ciudad, Servicio, Cola,Tickets,NivelPrioridad
 from datetime import datetime
 from django.utils import timezone
 from django.conf import settings
-
 from .forms import Personaforms,Sercivioforms,Turnosforms
 
 # Creación de las views.

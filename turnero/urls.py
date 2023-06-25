@@ -32,8 +32,8 @@ urlpatterns = [
     path('persona/', views.Persona_views, name='persona'),
     path('servicio/', views.Servicio_views, name='servicio'),
     path('turnos/', views.Turnos_views, name='turnos'),
-    path('lista_servicios/', views.ListaServicios_views, name='lista_servicios')
-
+    path('lista_servicios/', views.ListaServicios_views, name='lista_servicios'),
+    path('lista_turnos/', views.ListaTurnos_views, name='lista_turnos')
 ]
 #para definicion de migracion de archivos de nuestro proyecto a nuestro servidor de archivos (static_env)
 if settings.DEBUG:
