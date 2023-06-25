@@ -45,7 +45,8 @@ def Persona_views(request):
             obj.persona_nombre = persona_nombre
             obj.persona_apellido = persona_apellido
             obj.sexo_id = Sexo.objects.get(sexo_id=sexo_id)
-            obj.persona_fecha_nacimineto = datetime.strptime(persona_fecha_nacimineto, "%d/%m/%Y").strftime("%Y-%m-%d")
+            obj.persona_fecha_nacimineto = persona_fecha_nacimineto
+            #obj.persona_fecha_nacimineto = datetime.strptime(persona_fecha_nacimineto, "%d/%m/%Y").strftime("%Y-%m-%d")
             obj.ciudad_id = Ciudad.objects.get(ciudad_id=ciudad_id)
             obj.persona_direccion = persona_direccion
             obj.persona_telefono = persona_telefono

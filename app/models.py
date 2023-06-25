@@ -133,20 +133,19 @@ class NivelPrioridad(models.Model):
     def __str__(self) -> str:
         return self.nivel_prioridad_condicion
 
-class Cola(models.Model):
-    cola_id = models.AutoField(primary_key=True)
-    servicio_id = models.ForeignKey('Servicio', on_delete=models.SET_DEFAULT, default=None, blank=True,  null=True)
-    persona_id = models.ForeignKey('Persona', on_delete=models.SET_DEFAULT, default=None, blank=True,  null=True)
-    nivel_prioridad_id = models.ForeignKey('NivelPrioridad', on_delete=models.SET_DEFAULT, default=None, blank=True, null=True)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
-    cola_ticket_nro = models.SmallIntegerField(blank=False, null=False)
-    cola_fecha_hora_ingreso = models.DateTimeField(blank=True, null=True)
-    cola_fecha_hora_salida = models.DateTimeField(blank=True, null=True)
-    cola_fecha_hora_atencion = models.DateTimeField(blank=True, null=True)
-    cola_estado = models.CharField(max_length=50, blank=True, null=True)
+    class Cola(models.Model):
+        cola_id = models.AutoField(primary_key=True)
+        servicio_id = models.ForeignKey('Servicio', on_delete=models.SET_DEFAULT, default=None, blank=True, null=True)
+        persona_id = models.ForeignKey('Persona', on_delete=models.SET_DEFAULT, default=None, blank=True, null=True)
+        nivel_prioridad_id = models.ForeignKey('NivelPrioridad', on_delete=models.SET_DEFAULT, default=None, blank=True, null=True)
+        usuario_id = models.CharField(max_length=50, blank=True, null=True)
+        cola_ticket_nro = models.SmallIntegerField(blank=False, null=False)
+        cola_fecha_hora_ingreso = models.DateTimeField(blank=True, null=True)
+        cola_fecha_hora_salida = models.DateTimeField(blank=True, null=True)
+        cola_fecha_hora_atencion = models.DateTimeField(blank=True, null=True)
+        cola_estado = models.CharField(max_length=50, blank=True, null=True)
 
-    def __str__(self) -> str:
-        return self.cola_ticket_nro
+
 
 class Tickets(models.Model):
     tickets_id = models.AutoField(primary_key=True)
