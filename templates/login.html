@@ -18,7 +18,8 @@
     <link rel="mask-icon" href="{% static 'img/turnos-img.png' %}" color="#712cf9">
     <link rel="icon" href="{% static 'img/turnos-img.png' %}">
     <meta name="theme-color" content="#712cf9">
-   <style>
+
+    <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -70,7 +71,7 @@
 
     <main class="form-signin w-100 m-auto">
 
-    <form method="POST" action="{% url "login" %}">
+    <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
       <img class="mb-4" src="{% static '/img/turnos-img.png' %}" alt="" width="120" height="120">
         <h1 class="h2 mb-3 fw-normal"> Sistema de Turnos </h1>
