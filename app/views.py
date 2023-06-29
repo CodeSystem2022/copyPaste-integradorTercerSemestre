@@ -51,7 +51,7 @@ def Persona_views(request):
             obj.persona_telefono = persona_telefono
             obj.persona_correo = persona_correo
             obj.save()
-            messages.success(request, 'Cliente registrado correctamente.')
+            messages.success(request, 'Paciente registrado correctamente.')
 
         context = {
         "form": Personaforms(),

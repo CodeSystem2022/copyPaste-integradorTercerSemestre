@@ -11,12 +11,12 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
     <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{% static 'img/turnos-img.png' %}" sizes="180x180">
-    <link rel="icon" href="{% static 'img/turnos-img.png' %}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{% static 'img/turnos-img.png' %}" sizes="16x16" type="image/png">
-    <link rel="manifest" href="{% static 'img/turnos-img.png' %}">
-    <link rel="mask-icon" href="{% static 'img/turnos-img.png' %}" color="#712cf9">
-    <link rel="icon" href="{% static 'img/turnos-img.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/turnos-icono.png' %}" sizes="180x180">
+    <link rel="icon" href="{% static 'img/turnos-icono.png' %}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{% static 'img/turnos-icono.png' %}" sizes="16x16" type="image/png">
+    <link rel="manifest" href="{% static 'img/turnos-icono.png' %}">
+    <link rel="mask-icon" href="{% static 'img/turnos-icono.png' %}" color="#712cf9">
+    <link rel="icon" href="{% static 'img/turnos-icono.png' %}">
     <meta name="theme-color" content="#712cf9">
 
     <style>
@@ -73,7 +73,7 @@
 
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-      <img class="mb-4" src="{% static '/img/turnos-img.png' %}" alt="" width="120" height="120">
+      <img class="mb-4" src="{% static '/img/turnos-img.png' %}" alt="" width="180" height="180">
         <h1 class="h2 mb-3 fw-normal"> Sistema de Turnos </h1>
         <h2 class="h3 mb-3 fw-normal"> Acceso </h2>
       {% if error %}
