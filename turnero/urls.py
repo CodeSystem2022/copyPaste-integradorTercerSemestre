@@ -29,7 +29,8 @@ urlpatterns = [
     path('servicio/', views.Servicio_views, name='servicio'),
     path('turnos/', views.Turnos_views, name='turnos'),
     path('lista_servicios/', views.ListaServicios_views, name='lista_servicios'),
-    path('lista_turnos/', views.ListaTurnos_views, name='lista_turnos')
+    path('lista_turnos/', views.ListaTurnos_views, name='lista_turnos'),
+    path('lista_personas/', views.ListaPersonas_views, name='lista_personas')
 ]
 urlpatterns += staticfiles_urlpatterns()
 

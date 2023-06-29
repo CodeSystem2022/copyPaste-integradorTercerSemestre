@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='persona',
-            name='persona_fecha_nacimiento',
+            name='persona_fecha_nacimineto',
             field=models.DateField(default=django.utils.timezone.now),
             preserve_default=False,
         ),

@@ -31,7 +31,7 @@ def Persona_views(request):
         persona_cedula = request.POST.get("persona_cedula")
         persona_nombre = request.POST.get("persona_nombre")
         persona_apellido = request.POST.get("persona_apellido")
-        persona_fecha_nacimineto = request.POST.get("persona_fecha_nacimineto")
+        persona_fecha_nacimiento = request.POST.get("persona_fecha_nacimiento")
         sexo_id = request.POST.get("sexo_id")
         ciudad_id = request.POST.get("ciudad_id")
         persona_direccion = request.POST.get("persona_direccion")
@@ -44,8 +44,8 @@ def Persona_views(request):
             obj.persona_nombre = persona_nombre
             obj.persona_apellido = persona_apellido
             obj.sexo_id = Sexo.objects.get(sexo_id=sexo_id)
-            obj.persona_fecha_nacimineto = persona_fecha_nacimineto
-            #obj.persona_fecha_nacimineto = datetime.strptime(persona_fecha_nacimineto, "%d/%m/%Y").strftime("%Y-%m-%d")
+            obj.persona_fecha_nacimiento = persona_fecha_nacimiento
+            #obj.persona_fecha_nacimiento = datetime.strptime(persona_fecha_nacimiento, "%d/%m/%Y").strftime("%Y-%m-%d")
             obj.ciudad_id = Ciudad.objects.get(ciudad_id=ciudad_id)
             obj.persona_direccion = persona_direccion
             obj.persona_telefono = persona_telefono
@@ -109,9 +109,9 @@ def Turnos_views(request):
         persona_id_re = request.POST.get("persona_id")
         nivel_prioridad_id_re = request.POST.get("nivel_prioridad_id")
         if POST_data:
-            s=Servicio.objects.filter(servicio_id=servicio_id_re).first()
-            t=Tickets.objects.get(tickets_descripcion=s.servicio_descripcion[:2])
-            obj=Cola()
+            s = Servicio.objects.filter(servicio_id=servicio_id_re).first()
+            t = Tickets.objects.get(tickets_descripcion=s.servicio_descripcion[:2])
+            obj = Cola()
             obj.servicio_id = Servicio.objects.get(servicio_id=servicio_id_re)
             obj.persona_id = Persona.objects.get(persona_id=persona_id_re)
             obj.nivel_prioridad_id = NivelPrioridad.objects.get(nivel_prioridad_id=nivel_prioridad_id_re)
@@ -143,4 +143,6 @@ def ListaTurnos_views(request):
     turnos = Cola.objects.all().order_by('servicio_id', 'nivel_prioridad_id', 'cola_ticket_nro')
     return render(request, 'lista_turnos.html', {'turnos': turnos})
     
-
+def ListaPersonas_views(request):
+    personas = Persona.objects.all().order_by('persona_apellido', 'persona_fecha_nacimiento')
+    return render(request, 'lista_personas.html', {'personas': personas})
