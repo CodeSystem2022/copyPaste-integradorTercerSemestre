@@ -31,7 +31,7 @@ def Persona_views(request):
         persona_cedula = request.POST.get("persona_cedula")
         persona_nombre = request.POST.get("persona_nombre")
         persona_apellido = request.POST.get("persona_apellido")
-        persona_fecha_nacimiento = request.POST.get("persona_fecha_nacimiento")
+        persona_fecha_nacimineto = request.POST.get("persona_fecha_nacimineto")
         sexo_id = request.POST.get("sexo_id")
         ciudad_id = request.POST.get("ciudad_id")
         persona_direccion = request.POST.get("persona_direccion")
@@ -44,8 +44,8 @@ def Persona_views(request):
             obj.persona_nombre = persona_nombre
             obj.persona_apellido = persona_apellido
             obj.sexo_id = Sexo.objects.get(sexo_id=sexo_id)
-            obj.persona_fecha_nacimiento = persona_fecha_nacimiento
-            #obj.persona_fecha_nacimiento = datetime.strptime(persona_fecha_nacimiento, "%d/%m/%Y").strftime("%Y-%m-%d")
+            obj.persona_fecha_nacimineto = persona_fecha_nacimineto
+            #obj.persona_fecha_nacimineto = datetime.strptime(persona_fecha_nacimineto, "%d/%m/%Y").strftime("%Y-%m-%d")
             obj.ciudad_id = Ciudad.objects.get(ciudad_id=ciudad_id)
             obj.persona_direccion = persona_direccion
             obj.persona_telefono = persona_telefono
@@ -144,5 +144,5 @@ def ListaTurnos_views(request):
     return render(request, 'lista_turnos.html', {'turnos': turnos})
     
 def ListaPersonas_views(request):
-    personas = Persona.objects.all().order_by('persona_apellido', 'persona_fecha_nacimiento')
+    personas = Persona.objects.all().order_by('persona_apellido', 'persona_fecha_nacimineto')
     return render(request, 'lista_personas.html', {'personas': personas})

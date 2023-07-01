@@ -14,7 +14,7 @@ class Personaforms(forms.Form):
     persona_cedula = forms.CharField(max_length=15, required=True)
     persona_nombre = forms.CharField(max_length=50, required=True)
     persona_apellido = forms.CharField(max_length=50, required=True)
-    persona_fecha_nacimiento = forms.DateField(widget=DateInput, required=True)
+    persona_fecha_nacimineto = forms.DateField(widget=DateInput, required=True)
     sexo_id = forms.ModelChoiceField(queryset=models.Sexo.objects.all(), required=False)
     ciudad_id = forms.ModelChoiceField(queryset=models.Ciudad.objects.all(), required=False)    
     persona_direccion = forms.CharField(max_length=50, required=False)

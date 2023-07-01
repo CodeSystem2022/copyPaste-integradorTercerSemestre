@@ -74,10 +74,10 @@ class SexoAdmin(admin.ModelAdmin):
 admin.site.register(models.Sexo,SexoAdmin)
 
 class PersonaAdmin(admin.ModelAdmin):
-    list_display = ["persona_id", "persona_cedula", "persona_nombre", "persona_apellido", 'persona_fecha_nacimiento',
+    list_display = ["persona_id", "persona_cedula", "persona_nombre", "persona_apellido", 'persona_fecha_nacimineto',
                     "persona_direccion", "persona_telefono", "persona_correo", "ciudad_id", "sexo_id"]
     # list_filter = ["pais_descripcion"]
-    list_editable = ["persona_cedula", "persona_nombre", "persona_apellido", "persona_fecha_nacimiento",
+    list_editable = ["persona_cedula", "persona_nombre", "persona_apellido", "persona_fecha_nacimineto",
                      "persona_direccion", "persona_telefono", "persona_correo", "ciudad_id", "sexo_id"]
     search_fields = ["persona_cedula", "persona_nombre", "persona_apellido"]
     ordering = ["persona_id"]

@@ -60,11 +60,12 @@
 <br>
 <br>
 <h3><strong><u> ▶️ Puesta en marcha del proyecto: </u></strong></h3>
-1. Luego de clonar el repositorio : `git clone https://github.com/CodeSystem2022/CopyPaste_TercerSemestre.git `.<br>
+1. Luego de clonar el repositorio : `git clone https://github.com/CodeSystem2022/copyPaste-integradorTercerSemestre.git `.<br>
 2. Vamos a la carpeta del proyecto : `cd CopyPaste_TercerSemestre `.<br> 
 3. Iniciamos nuestro entorno virtual que ya está creado y se llama turnero-env : `turnero-env\scripts\activate `.<br>
 4. Instalamos los requerimientos de nuestro proyecto : `pip install -r requirements.txt `.<br>
-5. Creamos una base de datos local y luego modificamos el archivo settings.py para conectar el proyecto con la base de datos PostgreSQL recién creada: <br> <br>
+5. Creamos una base de datos local en PostgreSQL. <br>
+6. Modificamos el archivo settings.py para conectar el proyecto con la base de datos PostgreSQL recién creada: <br> <br>
     ```
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -75,7 +76,7 @@
         'PORT': '5432',
     }
     ```
-6. Entramos a la carpeta del proyecto propiamente dicha : `cd turnero `.<br>
+   <br>
 7. Realizamos las migraciones correspondientes de nuestras tablas a nuestra base de datos: `python manage.py makemigrations` + `python manage.py migrate `.<br>
 8. Recolectamos nuestros archivos estáticos : `python manage.py collectstatic `.<br>
 9. Iniciamos nuestro servidor : `python manage.py runserver `.<br>
